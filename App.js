@@ -1,44 +1,48 @@
-import { View, Text, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function app(){
-  return(
-    <View style={Styles.container}>
+export default function MyComponent() {
+  const handleButton1Press = () => {
+    alert('Botão 1 pressionado!');
+  };
 
-      <View style={Styles.topbar}> 
-    
-    </View>
-    <View>
-      <Text style={Styles.title}>
-        translator
-      </Text>
-    </View>
-    </View>
-    
-  )
+  const handleButton2Press = () => {
+    alert('Botão 2 pressionado!');
+  };
 
+  return (
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>tradutor</Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={handleButton1Press}>
+          <Text>Ingles</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleButton2Press}>
+          <Text>Portugues</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
 
-const Styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:"gray",
-    margin: "flex",
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:20,
-    height:70,
-
+    marginBottom: 200,
+  },
+  paragraph: {
+    marginBottom: 200,
+    textAlign: 'center',
 
   },
-  topbar: {
-    flexDirection: "row",
-    height: 70,
-    backgroundColor: "#018786"
+  buttonContainer: {
+    flexDirection: 'row',
   },
-  title: {
-    color: "#c2c2c2S",
-    fontSize: 25,
-    fontWeight: "bold",
-    alignSelf: "center",
-    margin: 30,
-  }
-})
+  button: {
+    backgroundColor: '#87baab',
+    padding: 10,
+    marginHorizontal: 5,
+  },
+});
